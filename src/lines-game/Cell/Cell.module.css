@@ -1,0 +1,9 @@
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: cadetblue;
+    border: 1px solid black;
+}

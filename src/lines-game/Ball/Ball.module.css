@@ -1,0 +1,36 @@
+.ball {
+    display: inline-block;
+    background: black;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    margin: 0;
+}
+
+.red {
+    background: radial-gradient(100px 100px, #b71c1c, #000);
+}
+
+.orange {
+    background: radial-gradient(100px 100px, #ff9800, #000);
+}
+
+.yellow {
+    background: radial-gradient(100px 100px, #ffeb3b, #000);
+}
+
+.green {
+    background: radial-gradient(100px 100px, #1b5e20, #000);
+}
+
+.blue {
+    background: radial-gradient(100px 100px, #2196f3, #000);
+}
+
+.violet {
+    background: radial-gradient(100px 100px, #9c27b0, #000);
+}
+
+.black {
+    background: radial-gradient(100px 100px, #212121, #000);
+}
