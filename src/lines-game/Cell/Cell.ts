@@ -2,18 +2,14 @@ import { BaseProps, Component } from '../_lib/Component'
 import styles from './Cell.module.css'
 import { withActiveBallPos, withField } from '../_lib/withStore'
 import { Ball } from '../Ball/Ball'
-import {
-  ActiveBallPositionType,
-  BALL_COLOR,
-  FieldType,
-} from '../_lib/StoreDataTypes'
+import { BallPositionType, BALL_COLOR, FieldType } from '../_lib/StoreDataTypes'
 import { Actions, ActionsBatch, store } from '../_lib/Store'
 
 type CellProps = {
   row: number
   col: number
   field?: FieldType
-  activeBallPos?: ActiveBallPositionType
+  activeBallPos?: BallPositionType
 } & BaseProps
 
 class Cell extends Component<BaseProps> {
@@ -28,6 +24,7 @@ class Cell extends Component<BaseProps> {
       events: {
         click: () => {
           const hasBallInCell = ball.props.color !== BALL_COLOR.EMPTY
+          console.log(this.props.activeBallPos)
           const isActiveBallExist =
             this.props.activeBallPos &&
             this.props.activeBallPos.row !== -1 &&

@@ -1,14 +1,14 @@
 import { BaseProps, Component } from '../_lib/Component'
 import styles from './Game.module.css'
 import Field from '../Field/Field'
-import Score from '../Score/Score'
+import { StatsRow } from '../StatsRow/StatsRow'
 
 export class Game extends Component<BaseProps> {
   constructor() {
-    const score = new Score({})
+    const statsRow = new StatsRow()
     const field = new Field({})
     super({
-      children: [score, field],
+      children: [statsRow, field],
     })
   }
 

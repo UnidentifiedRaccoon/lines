@@ -13,7 +13,7 @@ const connect = (mapStateToProps: MapStateToPropsType) => {
         this.componentState = componentState
       }
 
-      private onChangeUserCallback = (_: any, newState: AppState) => {
+      #onChangeUserCallback = (_: any, newState: AppState) => {
         // можем обращаться и к аргументам ф-ции
         const mappedNewState = mapStateToProps(newState)
         if (!isEqual(this.componentState, mappedNewState)) {
@@ -25,12 +25,12 @@ const connect = (mapStateToProps: MapStateToPropsType) => {
 
       componentDidMount() {
         super.componentDidMount()
-        store.on(Store.EVENT.CHANGE, this.onChangeUserCallback)
+        store.on(Store.EVENT.CHANGE, this.#onChangeUserCallback)
       }
 
       componentWillUnmount() {
         super.componentWillUnmount()
-        store.off(Store.EVENT.CHANGE, this.onChangeUserCallback)
+        store.off(Store.EVENT.CHANGE, this.#onChangeUserCallback)
       }
     }
 }

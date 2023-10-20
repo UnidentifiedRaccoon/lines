@@ -16,16 +16,30 @@ const generateRandomNumber = (min: number = 0, max: number = 1) => {
 }
 
 export const insertBalls = (field: FieldType, count: number) => {
-  for (let i = 0; i < count; i++) {
+  let MAX_RETRIES = 100
+  for (let i = 0; i < count && MAX_RETRIES !== 0; i++) {
     const row = generateRandomNumber(0, field.length - 1)
     const col = generateRandomNumber(0, field[0].length - 1)
     if (field[row][col] !== BALL_COLOR.EMPTY) {
       i--
+      MAX_RETRIES--
       continue
     }
     field[row][col] =
       BALL_COLORS[generateRandomNumber(0, BALL_COLORS.length - 1)]
   }
+
+  if (MAX_RETRIES === 0) {
+    for (let i = 0; i < field.length; i++) {
+      for (let j = 0; j < field[0].length; j++) {
+        if (field[i][j] === BALL_COLOR.EMPTY) {
+          field[i][j] =
+            BALL_COLORS[generateRandomNumber(0, BALL_COLORS.length - 1)]
+        }
+      }
+    }
+  }
+
   return field
 }
 
